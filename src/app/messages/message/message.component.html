@@ -1,0 +1,4 @@
+<div *ngIf="messageService.getMessage()" class="message-wrapper">
+  <div class="title">{{messageService.getMessage()['title']}}</div>
+  <div class="body">{{messageService.getMessage()['body']}}</div>
+</div>

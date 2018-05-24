@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Details des Benutzers</h2>
+  <div *ngIf="user">
+    Vorname: {{user.firstname}} <br>
+    Nachname: {{user.lastname}} <br>
+    Alter: {{user.age}} <br>
+    E-Mail: {{user.email}} <br>
+    Passwort: {{user.password}} <br>
+
+    <button class="btn btn-success" routerLink="/user/edit/{{user._id}}">Bearbeiten</button>
+    <button class="btn btn-primary" routerLink="/user">Zurück</button>
+  </div>
+</div>

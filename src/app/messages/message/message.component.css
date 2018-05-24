@@ -1,0 +1,20 @@
+.message-wrapper{
+  display: block;
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  background-color: lightgray;
+  border: 2px solid darkgray;
+  width: 300px;
+}
+
+.title{
+  padding:5px 10px;
+  font-weight: bold;
+  border-bottom: 2px solid darkgray;
+}
+
+.body{
+  font-size: 0.8em;
+  padding:5px 10px;
+}

@@ -1,0 +1,35 @@
+<div class="container">
+  <div *ngIf="ticket">
+    <h2>Details vom Ticket {{ticket.subject}}</h2>
+    <div class="myTicket">
+      <div class="subject">
+        Betreff: {{ticket.subject}}
+      </div>
+      <div class="body">
+        Inhalt: <span [innerHtml]="ticket.body | stringToBr"></span>
+      </div>
+      <div class="urgent">
+        <button class="btn"
+                [class.btn-default]="ticket.urgent"
+                [class.btn-danger]="ticket.urgent">
+          {{ticket.urgent ? 'Dringend' : 'Nicht dringend'}}
+        </button>
+      </div>
+      <div class="type">
+        Type: {{ticket.type}}
+      </div>
+      <div class="created">
+        Erstellt am: {{ticket.created | date: 'dd.MM.y'}}
+      </div>
+      <div class="owner">
+        Besitzer: {{ticket.owner || 'Kein Besitzer'}}
+        Besitzer: {{ticket.owner || 'Kein Besitzer'}}
+      </div>
+    </div>
+
+    <button class="btn btn-success" (click)="close()">Abschliessen</button>
+    <button class="btn btn-default" routerLink="/ticket/edit/{{ticket._id}}">Bearbeiten</button>
+    <button class="btn btn-warning" routerLink="/home">Zurück</button>
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+:host{
+  display: block;
+  background-color: #a2bcef;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+ul{
+  margin:0;
+  padding:0;
+}
+
+ul li{
+  list-style: none;
+  float: left;
+}
+
+a{
+  padding: 15px 15px;
+  border-right: 1px solid lightblue;
+  display: inline-block;
+  text-decoration: none;
+  border-left: 1px solid lightblue;
+}
+
+a:last-child{
+  border-right: 1px solid lightblue;
+}
+
+a:hover{
+  background-color: lightblue;
+}
+
+a:last-child{
+  border-right: none;
+}

@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Benutzerübersicht</h2>
+  <div class="table-responsive">
+    <table class="table-bordered table">
+      <thead>
+      <tr>
+        <th>Vorname</th>
+        <th>Nachname</th>
+        <th>Alter</th>
+        <th>Aktionen</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.age}}</td>
+        <td>
+          <button class="btn btn-primary" routerLink="/user/edit/{{user._id}}">Bearbeiten</button>
+          <button class="btn btn-default" routerLink="/user/view/{{user._id}}">Ansehen</button>
+          <button class="btn btn-danger" (click)="deleteUser(user)">Löschen</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

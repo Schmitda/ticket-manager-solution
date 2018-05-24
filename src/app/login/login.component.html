@@ -1,0 +1,14 @@
+<div class="container">
+  <h2 class="text-center">Login</h2>
+  <form [formGroup]="loginForm" (submit)="login()">
+    <div class="form-group">
+      <label for="" >E-Mail</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="">Passwort</label>
+      <input type="text" class="form-control" formControlName="password">
+    </div>
+    <button class="btn btn-primary" type="submit">Absenden</button>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <ticket-search-ticket (searchResultsChanged)="updateTickets($event)"></ticket-search-ticket>
+  <div class="table-responsive">
+    <h2>Ticketübersicht</h2>
+    <table style="" class="table-striped table table-bordered">
+      <thead>
+      <tr>
+        <th>Nr</th>
+        <th>Betreff</th>
+        <th>Erstellt</th>
+        <th>Besitzer</th>
+        <th>Aktion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ticket of myTickets; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{ticket.subject}}</td>
+        <td>{{ticket.created | date: 'dd.MM.y'}}</td>
+        <td>{{ticket.owner || 'Kein Besitzer!'}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteTicket(ticket)">Löschen</button>
+          <button class="btn btn-primary" routerLink="/ticket/edit/{{ticket._id}}">Bearbeiten</button>
+          <button class="btn btn-success" routerLink="/ticket/view/{{ticket._id}}">Ansehen</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

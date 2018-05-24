@@ -1,0 +1,15 @@
+a.dashboard-link {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: lightgray;
+  width: 300px;
+  margin: 50px auto;
+  box-shadow: 2px 2px #efefef;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+a.dashboard-link:hover {
+  background-color: #efefef;
+}

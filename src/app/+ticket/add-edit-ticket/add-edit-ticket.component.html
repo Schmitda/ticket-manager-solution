@@ -1,0 +1,72 @@
+<div class="container">
+  <form #ngForm="ngForm" ngForm="" (submit)="submitTicket()">
+    <div class="form-group">
+      <label for="">Betreff</label>
+      <input class="form-control" required minlength="10" name="subject" [(ngModel)]="ticket.subject" type="text"
+             placeholder="subject">
+    </div>
+    <small *ngIf="ngForm.controls.subject?.invalid && ngForm.controls.subject?.touched">
+      Muss mindestens zehn Zeichen lang sein.
+    </small>
+
+    <div class="form-group">
+      <label for="">Nachricht</label>
+      <textarea class="form-control" minlength="20" maxlength="1000" name="body" [(ngModel)]="ticket.body" id=""
+                cols="30"
+                rows="10"></textarea>
+    </div>
+    <small *ngIf="ngForm.controls.body?.invalid &&
+    ngForm.controls.body?.touched &&
+    ngForm.controls.body?.errors?.minlength
+">
+      Muss mindestens 20 Zeichen lang sein.
+    </small>
+    <small *ngIf="ngForm.controls.body?.invalid &&
+    ngForm.controls.body?.touched &&
+    ngForm.controls.body?.errors?.maxlength">
+      Darf maximal 1000 Zeichen lang sein.
+    </small>
+
+
+    <div class="form-group">
+      <label class="radio-inline" for="">
+        <input type="radio" required class="" #myInput="ngModel" name="urgent" [(ngModel)]="ticket.urgent"
+               [value]="false">
+        Dringend - Nein
+      </label>
+      <label for="" class="radio-inline">
+        <input type="radio" required class="" name="urgent" [(ngModel)]="ticket.urgent" [value]="true">
+        Dringend - Ja
+      </label>
+    </div>
+    <small [hidden]="myInput.valid || myInput.pristine">
+      {{myInput.errors?.requireFalse?.message}}
+    </small>
+
+    <div class="form-group">
+      <label for="">Type</label>
+      <select required class="form-control" name="type" id="" [(ngModel)]="ticket.type">
+        <option value="">Bitte wählen</option>
+        <option value="network">Netzwerkstörung</option>
+        <option value="hardware">Hardwarestörung</option>
+        <option value="power">Stromstörung</option>
+      </select>
+    </div>
+    <small *ngIf="ngForm.controls.type?.invalid && ngForm.controls.type?.touched">
+      Etwas muss ausgewählt werden.
+    </small>
+
+    <div class="form-group">
+      <label for="">Besitzer wählen</label>
+      <select required class="form-control" name="owner" id="" [(ngModel)]="ticket.owner">
+        <option value="">Bitte wählen</option>
+        <option [value]="user._id" *ngFor="let user of users">{{user.firstname + " " + user.lastname + " (" + user.age + ")"}}</option>
+      </select>
+    </div>
+    <small *ngIf="ngForm.controls.owner?.invalid && ngForm.controls.owner?.touched">
+      Etwas muss ausgewählt werden.
+    </small>
+
+    <button class="btn btn-primary" [disabled]="ngForm.invalid" type="submit">Sichern</button>
+  </form>
+</div>
